@@ -1,0 +1,8 @@
+/* ============== Utilities ===============  */
+.base {
+  padding: var(--padding-base);
+}
+
+.font-vazir * {
+  font-family: "vazir";
+}

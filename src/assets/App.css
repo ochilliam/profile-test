@@ -1,6 +1,86 @@
-.app {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background-color: #eee;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-full);
+}
+
+.header__dropdown {
+  display: flex;
+  justify-content: space-between;
+  font-family: "vazir-bold";
+  width: 18ch;
+  line-height: 1.7rem;
+  color: var(--text-gray-600);
+  background-color: var(--bg-gray-100);
+  border-radius: var(--border-radius-full);
+  padding: 0.44rem 0.72rem;
+}
+
+.post {
+  padding: 2.5rem 0rem;
+}
+
+.post__label {
+  color: var(--text-gray-300);
+  font-family: "vazir-bold";
+  font-size: var(--font-lg);
+}
+
+.post__input {
+  min-width: 100%;
+  border: none;
+  margin: 1rem 0;
+}
+
+.post__input::placeholder {
+  font-size: var(--font-sm);
+  color: var(--text-gray-400);
+}
+
+.selection {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.selection__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.06rem solid var(--text-gray-200);
+  padding: 0.75rem 1rem;
+}
+
+.selection__icon {
+  align-self: center;
+}
+
+.selection__body > * + * {
+  margin-right: 2.6rem;
+}
+
+.icon-btn {
+  padding: 0;
+}
+
+.selection__btn {
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  color: var(--color-white);
+  padding: 0.44rem 1.63rem;
+  border: none;
+}
+
+.dropdownSvg {
+  color: var(--color-primary);
 }
