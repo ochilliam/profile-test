@@ -1,13 +1,46 @@
+:root {
+  --font-size-sm: 0.75rem;
+  --font-size-lg: 1.125rem;
+
+  --padding-base: 0.021rem 0.038rem; /* vertical | horizontal */
+  --padding-x-base: 00.038rem;
+  --padding-y-base: 00.021rem;
+
+  --font-vazir: "vazir";
+  --font-vazir-bold: "vazir-bold";
+
+  --color-white: #ffffff;
+  --color-primary: #3e92e6;
+
+  --text-gray-100: #f6f6f6;
+  --text-gray-200: #d2d2d2;
+  --text-gray-300: #b7b7b7;
+  --text-gray-400: #808080;
+  --text-gray-500: #4a4a4a;
+  --text-gray-600: #434343;
+  --text-gray-700: #2c2c2c;
+  --text-gray-800: #212121;
+  --text-gray-900: #161616;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "vazir", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+@font-face {
+  font-family: "vazir";
+  src: url("assets/Vazir.ttf") format("opentype");
+}
+@font-face {
+  font-family: "vazir-bold";
+  src: url("assets/Vazir-Bold.ttf") format("opentype");
 }
