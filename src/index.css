@@ -19,6 +19,8 @@
   --border-radius-full: 10rem;
   --border-radius: 0.5rem;
 
+  --max-width: 60%;
+
   --text-gray-100: #f6f6f6;
   --text-gray-200: #d2d2d2;
   --text-gray-300: #b7b7b7;
@@ -71,6 +73,10 @@ button {
 
 @media screen and (min-width: 426px) {
   body {
-    max-width: 60%;
+    max-width: var(--max-width);
+  }
+
+  .selection {
+    max-width: var(--max-width);
   }
 }
