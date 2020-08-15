@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../assets/App.css";
 import briefcase from "../assets/briefcase.png";
 import bell from "../assets/bell.png";
@@ -6,11 +6,13 @@ import home from "../assets/home.png";
 import DropdownMenu from "./Dropdown";
 
 function App() {
-  const [form, setForm] = useState({
-    serverFiles: ["https://source.unsplash.com/dnL6ZIpht2s"],
-    clientPreview: [],
-  });
+  const [form, setForm] = useState({});
   const pictureInputRef = useRef(null);
+  useEffect(() => {
+    setForm({});
+
+    return () => {};
+  }, []);
 
   const onSubmitPost = (evt) => {
     evt.preventDefault();
@@ -24,6 +26,7 @@ function App() {
     const accepetedTypes = ["image/png", "image/jpeg", "image/gif"];
     const files = Array.from(evt.target.files);
     const clientPreview = [];
+    evt.persist();
 
     // #1 Not allowing more than 3 files
     if (files.length > 3) {
@@ -43,7 +46,7 @@ function App() {
 
       return clientPreview.push(await fileBase64(file));
     });
-
+    console.log(form);
     setForm({
       ...form,
       serverFiles: [...files],
@@ -116,13 +119,15 @@ function UserAvatar() {
 function PreviewUploadedImg({ images, alt }) {
   return (
     <div className="post__filePreview">
-      {images.clientPreview.map((base64Path, idx) => (
-        <img
-          key={`img_${idx}`}
-          src={base64Path}
-          alt={alt}
-          className="post__filePreview--img"
-        />
+      {images.clientPreview?.map((base64Path, idx) => (
+        <>
+          <img
+            key={idx.toString()}
+            src={base64Path}
+            alt={alt}
+            className="post__filePreview--img"
+          />
+        </>
       ))}
     </div>
   );

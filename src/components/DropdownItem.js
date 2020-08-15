@@ -2,13 +2,17 @@ import React, { useState, useRef } from "react";
 import { ReactComponent as Plus } from "../assets/plus.svg";
 
 function DropdownItem() {
-  const [category, setCategory] = useState(["مدیریت محصول", "طراحی محصول"]);
+  const [category, setCategory] = useState([]);
 
-  const [newCategory, setnewCategory] = useState(false);
+  const [newCategory, setCategoryState] = useState(false);
   const categoryRef = useRef(null);
 
   const onSaveNewCategory = () => {
-    setCategory([...category, categoryRef.current?.value]);
+    setCategory((prevCategory) => [
+      ...prevCategory,
+      categoryRef.current?.value,
+    ]);
+    setTimeout(() => (categoryRef.current.value = ""), 0);
   };
 
   const onHandleKeyPress = (evt) => {
@@ -21,7 +25,7 @@ function DropdownItem() {
   return (
     <div className="dropdown">
       {category.map((item, idx) => (
-        <li className="dropdown__item" key={`${item}${idx}`}>
+        <li className="dropdown__item" key={idx.toString()}>
           {item}
         </li>
       ))}
@@ -45,12 +49,12 @@ function DropdownItem() {
         </>
       ) : (
         <button
-          onClick={() => setnewCategory(!newCategory)}
+          onClick={() => setCategoryState(!newCategory)}
           className="header__dropdown--btn"
           type="button"
         >
           <span>دسته بندی جدید</span>
-          <Plus className="button-svg" />
+          <Plus width={20} className="button-svg" />
         </button>
       )}
     </div>
