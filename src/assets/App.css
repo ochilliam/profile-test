@@ -40,6 +40,7 @@
   left: 0;
   width: 100%;
   margin: 0 auto;
+  background-color: var(--color-white);
 }
 
 .footer__wrapper {
@@ -69,4 +70,23 @@
   color: var(--color-white);
   padding: 0.44rem 1.63rem;
   font-family: "vazir-bold";
+}
+
+.post__filePreview {
+  border-radius: var(--border-radius);
+
+  display: block;
+  max-width: 400px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.post__filePreview--img {
+  object-fit: cover;
+  display: block;
+  width: auto;
+  height: auto;
+  object-position: center;
 }
