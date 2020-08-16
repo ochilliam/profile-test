@@ -1,3 +1,4 @@
+/* ===========Dropdown Wrapper =========== */
 .header__dropdown {
   padding: 0 0.72rem;
   background-color: var(--bg-gray-100);
@@ -10,6 +11,7 @@
   overflow: hidden;
 }
 
+/* ===========Dropdown Button ============= */
 .header__dropdown--btn {
   display: flex;
   padding: 0.44rem 0;
@@ -29,11 +31,12 @@
   color: var(--text-gray-600);
 }
 
-.button-svg {
+.header__dropdown--icon {
   color: var(--color-secondary);
   transform: translateX(-30);
 }
 
+/* ========== Dropdown Input ============== */
 .dropdown__input {
   border-radius: var(--border-radius-sm);
   margin-top: 1rem;
@@ -53,7 +56,8 @@
   border-radius: var(--border-radius-sm);
 }
 
+/* =============== Dropdown Item =============== */
 .dropdown__item {
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   color: var(--text-gray-600);
 }

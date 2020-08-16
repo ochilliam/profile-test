@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import "../assets/App.css";
-import briefcase from "../assets/briefcase.png";
-import bell from "../assets/bell.png";
-import home from "../assets/home.png";
-import { ReactComponent as Close } from "../assets/x.svg";
+import "../assets/css/App.css";
+import briefcase from "../assets/svg/briefcase.png";
+import bell from "../assets/svg/bell.png";
+import home from "../assets/svg/home.png";
+import { ReactComponent as Close } from "../assets/svg/x.svg";
 import DropdownMenu from "./Dropdown";
 
 function App() {
@@ -109,14 +109,15 @@ function App() {
         />
 
         <CreatePostFooter>
-          <FileInputButton src={briefcase} alt="briefcase icon" />
-          <FileInputButton src={bell} alt="bell icon" />
+          <FileInputButton src={briefcase} alt="briefcase icon" id="input3" />
+          <FileInputButton src={bell} alt="bell icon" id="input2" />
           <FileInputButton
+            id="input1"
             src={home}
             alt="home icon"
             onClick={onOpenPictureInput}
             onChange={onChangePictureInput}
-            referenc={pictureInputRef}
+            reference={pictureInputRef}
           />
         </CreatePostFooter>
       </CreatePostForm>
@@ -209,9 +210,9 @@ function FileInputButton(props) {
         />
       </button>
       <input
-        ref={props.referenc}
+        ref={props.reference}
         type="file"
-        id="multiple"
+        id={props.id}
         className="hidden"
         onChange={props.onChange}
         multiple

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../assets/Dropdown.css";
-import { ReactComponent as ArrowDown } from "../assets/chevron-down.svg";
-import { ReactComponent as Close } from "../assets/x.svg";
+import "../assets/css/Dropdown.css";
+import { ReactComponent as ArrowDown } from "../assets/svg/chevron-down.svg";
+import { ReactComponent as Close } from "../assets/svg/x.svg";
 import DropdownItem from "./DropdownItem";
 
 function Dropdown() {
@@ -12,9 +12,9 @@ function Dropdown() {
       <button onClick={() => setOpen(!open)} className="header__dropdown--btn">
         <span>انتخاب دسته بندی</span>
         {open ? (
-          <Close width={20} className="button-svg" />
+          <Close width={20} className="header__dropdown--icon" />
         ) : (
-          <ArrowDown className="button-svg" />
+          <ArrowDown className="header__dropdown--icon" />
         )}
       </button>
 

@@ -7,7 +7,7 @@
   --font-sm: 0.75rem; /* 12px */
   --font-lg: 1.125rem; /* 18px */
 
-  --padding-base: 1rem 0.75rem; /* vertical | horizontal */
+  --padding-base: 1rem 0.75rem;
 
   --font-vazir: "vazir";
   --font-vazir-bold: "vazir-bold";
@@ -84,7 +84,7 @@ li {
     max-width: var(--max-width);
   }
 
-  .selection {
+  .footer {
     max-width: var(--max-width);
   }
 }

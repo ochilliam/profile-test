@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ReactComponent as Plus } from "../assets/plus.svg";
+import { ReactComponent as Plus } from "../assets/svg/plus.svg";
 
 function DropdownItem() {
   const [category, setCategory] = useState([]);
