@@ -14,7 +14,6 @@
 /* ===========Dropdown Button ============= */
 .header__dropdown--btn {
   display: flex;
-  padding: 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -24,6 +23,18 @@
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   background-color: inherit;
+}
+
+.header__dropdown--add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  outline: none;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-color: inherit;
+  padding-top: 1rem;
 }
 
 .header__dropdown--btn > span {

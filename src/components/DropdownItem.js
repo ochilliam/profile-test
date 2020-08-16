@@ -50,7 +50,7 @@ function DropdownItem() {
       ) : (
         <button
           onClick={() => setCategoryState(!newCategory)}
-          className="header__dropdown--btn"
+          className="header__dropdown--add"
           type="button"
         >
           <span>دسته بندی جدید</span>
