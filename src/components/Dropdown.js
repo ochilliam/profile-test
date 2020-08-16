@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assets/css/Dropdown.css";
-import { ReactComponent as ArrowDown } from "../assets/svg/chevron-down.svg";
-import { ReactComponent as Close } from "../assets/svg/x.svg";
+import { ReactComponent as ArrowDown } from "../assets/icons/chevron-down.svg";
+import { ReactComponent as Close } from "../assets/icons/x.svg";
 import DropdownItem from "./DropdownItem";
 
 function Dropdown() {

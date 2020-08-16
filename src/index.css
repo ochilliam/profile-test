@@ -77,7 +77,7 @@ li {
   list-style: none;
 }
 
-@import "assets/uilities.css";
+@import "assets/css/uilities.css";
 
 @media screen and (min-width: 426px) {
   body {

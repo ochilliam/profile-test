@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import "../assets/css/App.css";
-import briefcase from "../assets/svg/briefcase.png";
-import bell from "../assets/svg/bell.png";
-import home from "../assets/svg/home.png";
-import { ReactComponent as Close } from "../assets/svg/x.svg";
+import briefcase from "../assets/icons/briefcase.png";
+import bell from "../assets/icons/bell.png";
+import home from "../assets/icons/home.png";
+import { ReactComponent as Close } from "../assets/icons/x.svg";
 import DropdownMenu from "./Dropdown";
 
 function App() {
