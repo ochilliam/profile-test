@@ -1,39 +1,57 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "../assets/App.css";
 import briefcase from "../assets/briefcase.png";
 import bell from "../assets/bell.png";
 import home from "../assets/home.png";
+import { ReactComponent as Close } from "../assets/x.svg";
 import DropdownMenu from "./Dropdown";
 
 function App() {
-  const [form, setForm] = useState({});
-  const pictureInputRef = useRef(null);
-  useEffect(() => {
-    setForm({});
+  const [imgList, setImgList] = useState([]);
+  const [textInput, setTextInput] = useState({});
+  const [imgFile, setImgFile] = useState([]);
 
-    return () => {};
-  }, []);
+  const pictureInputRef = useRef(null);
 
   const onSubmitPost = (evt) => {
     evt.preventDefault();
+
+    return console.log({
+      ...textInput,
+      ...imgFile,
+    });
+  };
+
+  const onRemoveImg = (selectedItem) => {
+    setImgList(imgList.filter((prevItem) => prevItem !== selectedItem));
+  };
+
+  const onChangeTextarea = (evt) => {
+    evt.persist();
+
+    return setTextInput((prevInput) => ({
+      ...prevInput,
+      inputText: evt.target.value,
+    }));
   };
 
   const onOpenPictureInput = () => {
     return pictureInputRef.current?.click();
   };
 
-  const onChangePictureInput = (evt) => {
+  const onChangePictureInput = async (evt) => {
+    evt.persist();
+
     const accepetedTypes = ["image/png", "image/jpeg", "image/gif"];
     const files = Array.from(evt.target.files);
     const clientPreview = [];
-    evt.persist();
 
     // #1 Not allowing more than 3 files
     if (files.length > 3) {
       console.log("Only 3 images can be uploaded at a time");
     }
 
-    asyncForEach(files, async (file) => {
+    await asyncForEach(files, async (file, idx) => {
       // #2 Catching wrong file types on the client
       if (accepetedTypes.every((type) => file.type !== type)) {
         console.log(`'${file.type}' is not a supported format`);
@@ -43,15 +61,13 @@ function App() {
       if (file.size > 10000000) {
         console.log(`'${file.name}' is too large, please pick a smaller file`);
       }
+      let picBase64 = await fileBase64(file);
 
-      return clientPreview.push(await fileBase64(file));
+      clientPreview.push(picBase64);
     });
-    console.log(form);
-    setForm({
-      ...form,
-      serverFiles: [...files],
-      clientPreview,
-    });
+
+    setImgList((prevList) => [...prevList, ...clientPreview]);
+    setImgFile((prevFiles) => [...prevFiles, ...files]);
   };
 
   async function asyncForEach(array, callback) {
@@ -85,15 +101,19 @@ function App() {
         <UserAvatar />
         <DropdownMenu />
       </div>
-      <CreatePostForm onSubmit={onSubmitPost}>
-        <PreviewUploadedImg images={form} alt="an image" />
+      <CreatePostForm onChange={onChangeTextarea} onSubmit={onSubmitPost}>
+        <PreviewUploadedImg
+          images={imgList}
+          alt="an image"
+          onClick={onRemoveImg}
+        />
 
         <CreatePostFooter>
           <FileInputButton src={briefcase} alt="briefcase icon" />
-          <FileInputButton src={home} alt="home icon" />
+          <FileInputButton src={bell} alt="bell icon" />
           <FileInputButton
-            src={bell}
-            alt="bell icon"
+            src={home}
+            alt="home icon"
             onClick={onOpenPictureInput}
             onChange={onChangePictureInput}
             referenc={pictureInputRef}
@@ -116,18 +136,20 @@ function UserAvatar() {
   );
 }
 
-function PreviewUploadedImg({ images, alt }) {
+function PreviewUploadedImg(props) {
   return (
     <div className="post__filePreview">
-      {images.clientPreview?.map((base64Path, idx) => (
-        <>
-          <img
-            key={idx.toString()}
-            src={base64Path}
-            alt={alt}
-            className="post__filePreview--img"
+      {props.images?.map((base64Path, idx) => (
+        <div
+          key={`img-${idx}`}
+          style={{ backgroundImage: `url(${base64Path})` }}
+          className={`post__filePreview--img${idx}`}
+        >
+          <Close
+            onClick={props.onClick.bind(null, base64Path)}
+            className={`post__filePreview--svg${idx}`}
           />
-        </>
+        </div>
       ))}
     </div>
   );
@@ -142,13 +164,14 @@ function CreatePostForm(props) {
       <textarea
         name="postInput"
         className="post__input"
+        onChange={props.onChange}
         id="postInput"
-        ref={props.ref}
         placeholder="متن مورد نظر خود را تایپ کنید"
         dir="rtl"
         cols={35}
         rows={4}
       />
+
       {/* ================== CreatePostFooter goes here ================ */}
       {props.children}
     </form>
