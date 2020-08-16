@@ -5,14 +5,14 @@
   width: 18ch;
   position: absolute;
   left: 0%;
-  top: 12%;
+  top: 4%;
   transform-origin: top;
   overflow: hidden;
 }
 
 .header__dropdown--btn {
   display: flex;
-  padding: 0.6rem 0;
+  padding: 0.44rem 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;

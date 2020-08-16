@@ -12,7 +12,7 @@ function Dropdown() {
       <button onClick={() => setOpen(!open)} className="header__dropdown--btn">
         <span>انتخاب دسته بندی</span>
         {open ? (
-          <Close className="button-svg" />
+          <Close width={20} className="button-svg" />
         ) : (
           <ArrowDown className="button-svg" />
         )}
