@@ -6,8 +6,8 @@
 }
 
 .header__avatar {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3rem;
+  height: 3rem;
   object-fit: cover;
   object-position: center;
   border-radius: var(--border-radius-full);

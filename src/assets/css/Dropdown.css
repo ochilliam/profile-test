@@ -14,7 +14,7 @@
 /* ===========Dropdown Button ============= */
 .header__dropdown--btn {
   display: flex;
-  padding: 0.44rem 0;
+  padding: 0.22rem 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;

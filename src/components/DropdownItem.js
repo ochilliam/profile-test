@@ -54,7 +54,7 @@ function DropdownItem() {
           type="button"
         >
           <span>دسته بندی جدید</span>
-          <Plus width={20} className="button-svg" />
+          <Plus width={20} className="footer__dropdown--icon" />
         </button>
       )}
     </div>
