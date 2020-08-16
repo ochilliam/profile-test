@@ -87,4 +87,8 @@ li {
   .footer {
     max-width: var(--max-width);
   }
+
+  .post__filePreview--img1 {
+    width: 49.8%;
+  }
 }

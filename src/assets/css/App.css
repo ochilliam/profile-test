@@ -131,7 +131,7 @@
   background-size: cover;
   background-position: center center;
   border-radius: var(--border-radius);
-  width: 47%;
+  min-width: 47%;
   margin-left: 0.5rem;
   max-height: 10.38rem;
   height: 17rem;
