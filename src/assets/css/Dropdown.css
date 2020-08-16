@@ -1,6 +1,6 @@
 /* ===========Dropdown Wrapper =========== */
 .header__dropdown {
-  padding: 0 0.72rem;
+  padding: 0.44rem 0.72rem;
   background-color: var(--bg-gray-100);
   border-radius: 0.97rem;
   width: 18ch;
